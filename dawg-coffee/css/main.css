@@ -131,8 +131,7 @@ a:hover, a:focus {
 	color: #d87e28;
 	fill: currentColor;
 }
- .information {
- 	width: 100%;
+ .container-fluid {
  	text-align: center;
  	background-color: #dbdce3;
  }
