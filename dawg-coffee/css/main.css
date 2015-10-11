@@ -27,6 +27,7 @@ svg {
 }
 
 nav {
+	color: white;
 	position: absolute;
     left: 0px;
     right: 0px;
@@ -125,10 +126,6 @@ li {
 	}
 }
 
-a {
-	color: white;
-}
-
 a:hover, a:focus { 
 	text-decoration: none;
 	color: #d87e28;
@@ -137,4 +134,13 @@ a:hover, a:focus {
  .information {
  	width: 100%;
  	text-align: center;
+ 	background-color: #dbdce3;
  }
+
+.map {
+	border-radius: 5px;
+}
+
+i {
+	color: black;
+}
