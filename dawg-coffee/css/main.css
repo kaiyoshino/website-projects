@@ -8,6 +8,7 @@ body {
 	font-size: 16px;
 	font-weight: 300;
 	background-color: #E9EAEE;
+
 	
 }
 
@@ -23,6 +24,33 @@ svg {
 	fill: currentColor;
 	width: 1em;
 	height: 1em;
+}
+
+nav {
+	position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    z-index: -1;
+    background-color: #181c22;
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+li {
+	display: inline;
+	padding: 0.5em;
+	font-variant: small-caps;
+}
+
+.header-container {
+	background-repeat: no background-repeat;
+	width: 100%;
+	padding-top: 3em;
+}
+
+.motto-container {
+	display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -44,25 +72,31 @@ svg {
 		padding-left: 1em;
 		padding-right: 1em;
 	}
+
+	.header-container {
+		background-image: url(C:/Users/Kai/Documents/Junior/Fall/Info343/code/challenges/dawg-coffee/img/background-sm.jpg);
+		padding-top: 50px;
+		height: 550px;
+		color: white;
+		text-align: right;
+	}
+
+	.motto-container {
+		display: inherit;
+	}
 }
 
-nav {
-	position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    z-index: -1;
-    background-color: #181c22;
-    font-size: 16px;
-    padding-left: 15px;
-
-
+@media screen and (min-width: 992px) {
+	.header-container {
+		background-image: url(C:/Users/Kai/Documents/Junior/Fall/Info343/code/challenges/dawg-coffee/img/background-md.jpg);
+	}
 }
 
-li {
-	display: inline;
-	padding: 0.5em;
-	font-variant: small-caps;
+@media screen and (min-width: 1200px) {
+	.header-container {
+		padding-top: 3em;
+		background-image: url(C:/Users/Kai/Documents/Junior/Fall/Info343/code/challenges/dawg-coffee/img/background-lg.jpg);
+	}
 }
 
 a {
@@ -74,3 +108,4 @@ a:hover, a:focus {
 	color: #d87e28;
 	fill: currentColor;
 }
+
