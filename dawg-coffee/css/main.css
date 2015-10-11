@@ -134,5 +134,7 @@ a:hover, a:focus {
 	color: #d87e28;
 	fill: currentColor;
 }
-
-
+ .information {
+ 	width: 100%;
+ 	text-align: center;
+ }
