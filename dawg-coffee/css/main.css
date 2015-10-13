@@ -12,6 +12,10 @@ body {
 	
 }
 
+.container {
+	padding-top: 1em;
+}
+
 h1, h2, h3, h4, h5, h6 {
 		font-family: 'Raleway', 'Helvetica Nue', Helvetica, sans-serif;
 	}
@@ -26,13 +30,17 @@ svg {
 	height: 1em;
 }
 
-nav {
+a {
 	color: white;
+}
+
+nav {
 	position: absolute;
+	text-align: left;
     left: 0px;
     right: 0px;
     top: 0px;
-    z-index: -1;
+    z-index: 2;
     background-color: #181c22;
     font-size: 16px;
     padding-left: 15px;
@@ -44,13 +52,13 @@ li {
 	font-variant: small-caps;
 }
 
-.header-container {
+#header {
 	background-repeat: no background-repeat;
 	width: 100%;
 	padding-top: 3em;
 }
 
-.motto-container {
+#motto {
 	display: none;
 }
 
@@ -93,7 +101,7 @@ footer {
 		padding-right: 1em;
 	}
 
-	.header-container {
+	#header {
 		background-image: url(C:/Users/Kai/Documents/Junior/Fall/Info343/code/challenges/dawg-coffee/img/background-sm.jpg);
 		padding-top: 50px;
 		height: 550px;
@@ -101,7 +109,7 @@ footer {
 		text-align: right;
 	}
 
-	.motto-container {
+	#motto {
 		display: inherit;
 	}
 
@@ -123,10 +131,13 @@ footer {
 		max-height: 400px;
 	}
 
+.col-sm-9 {
+		text-align: right;
+	}
 }
 
 @media screen and (min-width: 992px) {
-	.header-container {
+	#header {
 		background-image: url(C:/Users/Kai/Documents/Junior/Fall/Info343/code/challenges/dawg-coffee/img/background-md.jpg);
 	}
 
@@ -136,7 +147,7 @@ footer {
 }
 
 @media screen and (min-width: 1200px) {
-	.header-container {
+	#header {
 		background-image: url(C:/Users/Kai/Documents/Junior/Fall/Info343/code/challenges/dawg-coffee/img/background-lg.jpg);
 	}
 }
@@ -177,6 +188,7 @@ dd {
 #story {
 	text-align: left;
 	background-color: #dbdce3;
+	padding-bottom: 1em;
 }
 
 #footer {
