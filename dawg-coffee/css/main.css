@@ -129,10 +129,10 @@ li {
 a:hover, a:focus { 
 	text-decoration: none;
 	color: #d87e28;
-	fill: currentColor;
+	/* fill: currentColor; */
 }
- .container-fluid {
- 	text-align: center;
+
+.information {
  	background-color: #dbdce3;
  }
 
@@ -140,6 +140,22 @@ a:hover, a:focus {
 	border-radius: 5px;
 }
 
+.container-fluid {
+	text-align: center;
+	background-color: #dbdce3;
+}
+
+#menu {
+	padding-left: 3em;
+	text-align: left;
+	background-color: #dbdce3;
+}
+
 i {
 	color: black;
+}
+
+dd {
+	font-style: italic;
+	padding-left: 1em;
 }
