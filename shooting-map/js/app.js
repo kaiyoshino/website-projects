@@ -12,12 +12,13 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(map);
 
 var doSomethingWithData = function(data) {
-	var circle = L.circle([data.lat, data.lng], 500, {
-	    color: 'red',
-	    fillColor: '#f03',
-	    fillOpacity: 0.5
-	}).addTo(map);
+	data.forEach(function(shooting) {
+		var circle = L.circle([shooting.lat, shooting.lng], 500, {
+		    color: 'red',
+		    fillColor: '#f03',
+		    fillOpacity: 0.5
+		}).addTo(map);
+	});
 }
 
 $.getJSON('data/data.min.json').then(doSomethingWithData);
-
