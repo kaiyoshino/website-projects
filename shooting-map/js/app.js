@@ -11,18 +11,18 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1Ijoia2FpeW9zaCIsImEiOiJjaWZ0eHVhenExZXdodWhtMmEzZDA1dDB6In0.PEbxwlAVJP5m-c7MqnTqKA'
 }).addTo(map);
 
-var unknown = L.layerGroup(),
-	white = L.layerGroup(),
-	black = L.layerGroup(),
-	asian = L.layerGroup(),
-	indian = L.layerGroup(),
-	pacific = L.layerGroup(),;
+var unknown = L.layerGroup();
+var	white = L.layerGroup();
+var	black = L.layerGroup();
+var	asian = L.layerGroup();
+var	indian = L.layerGroup();
+var	pacific = L.layerGroup();
 
-var shootingPopUp = {
-	lat: '';
-	lng: '';
-	sum: '';
-}
+// var shootingPopUp = {
+// 	lat: '',
+// 	lng: '',
+// 	sum: ''
+// };
 
 
 var doSomethingWithData = function(data) {
@@ -32,24 +32,27 @@ var doSomethingWithData = function(data) {
 		    color: 'red',
 		    fillColor: '#f03',
 		    fillOpacity: 0.5
-		}).addTo(map);
+		}).bindPopup(shooting.summary + "(link)".link(shooting.sourceURL)).addTo(map);
 
-		shootingPopUp.lat = shooting.lat;
-		shootingPopUp.lng = shooting.lng;
-		shootingPopUp.sum = shooting.summary;
+		// shootingPopUp.lat = shooting.lat;
+		// shootingPopUp.lng = shooting.lng;
+		// shootingPopUp.sum = shooting.summary;
 
-		if(race == "Uknown") {
+
+
+		if(shooting.race == "Uknown") {
 			marker.addTo(unknown);
-		} else if (race == "White") {
+		} else if (shooting.race == "White") {
 			marker.addTo(white);
-		} else if (race == "Black or African American") {
+		} else if (shooting.race == "Black or African American") {
 			marker.addTo(black);
-		} else if (race == "Asian") {
+		} else if (shooting.race == "Asian") {
 			marker.addTo(asian);
-		} else if (race == "American Indian or Alaska Native") {
+		} else if (shooting.race == "American Indian or Alaska Native") {
 			marker.addTo(indian);
-		} else if (race == "Native Hawaiian or Other Pacific Islander") {
+		} else if (shooting.race == "Native Hawaiian or Other Pacific Islander") {
 			marker.addTo(pacific);
+		}
 	});
 
 	L.control.layers(unknown, white, black, asian, indian, pacific).addTo(map);
@@ -57,8 +60,12 @@ var doSomethingWithData = function(data) {
 
 $.getJSON('data/data.min.json').then(doSomethingWithData);
 
-map.on('click', onMapClick)
 
-function onMapClick(shootingPopUp) {
-	shootingPopUp.lat
-}
+// function onMapClick(shootingPopUp) {
+// 	var popup = L.popup()
+// 		.setLatLng([shootingPopUp.lat, shootingPopUp.lng])
+// 		.setContent(shootingPopUp.sum)
+// 		.openOn(map);
+// }
+
+// map.on('click', onMapClick)
