@@ -44,6 +44,7 @@ map.on('overlayadd overlayremove', function() {
 var killed = 0;
 var hit = 0;
 
+
 var countKills = function(layerGroup) {
 	if (map.hasLayer(layerGroup)) {
 		layerGroup.getLayers().forEach(function(marker) {
@@ -77,6 +78,12 @@ var doSomethingWithData = function(data) {
 		    ['outcome']: shooting.outcome
 		}).bindPopup(shooting.summary + "(link)".link(shooting.sourceUrl));
 
+		if (shooting.outcome == "Killed") {
+				killed++;
+			} else {
+				hit++;
+			}
+
 		if(shooting.victim.race == "Unknown" || shooting.victim.race == null) {
 			marker.addTo(unknown);
 		} else if (shooting.victim.race == "White") {
@@ -91,6 +98,8 @@ var doSomethingWithData = function(data) {
 			marker.addTo(pacific);
 		}
 	});
+	document.getElementById("killed").innerHTML = killed;
+	document.getElementById("hit").innerHTML = hit;
 }
 
 $.getJSON('data/data.min.json').then(doSomethingWithData);
