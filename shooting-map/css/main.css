@@ -1,6 +1,12 @@
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 #map-container { 
 	height: 500px; 
 	text-align: left;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #C3D4F0;
 }
