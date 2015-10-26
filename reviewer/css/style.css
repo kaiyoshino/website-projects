@@ -20,7 +20,8 @@ input {
 	padding-top: 1em;
 }
 
-#reviewTemplate {
-/*	background-color: whitesmoke;*/
-	text-align: center;
+.container-fluid {
+	margin: 10px;
+	background-color: whitesmoke;
+	text-align: left;
 }

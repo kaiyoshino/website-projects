@@ -29,16 +29,27 @@ query.find({
   success: function(results) {
     for (var i = 0; i < results.length; i++) {
 		var reviewCurrent = results[i];
-		var clone = $('#reviewTemplate').clone().html(function(index, oldHtml){
-			console.log(oldHtml);
-			if(index == 1) {
-				$(this).text(reviewCurrent.get('title'));
-			// } else if (index == 2) {
-			// 	return reviewCurrent.get('information');
-			} else if (index == 3) {
-				$(this).text(reviewCurrent.get('review'));
-			}
-		}).insertAfter("#reviewTemplate");
+		if (i == 0) { 								// might want to find better solution -- not making template at all if no reviews **
+			$('#currentTitle').text(function() {
+					return "" + reviewCurrent.get('title');
+				});
+				$('#currentBody').text(function() {
+					return "" + reviewCurrent.get('review');
+				});
+		} else {
+			var clone = $('#reviewTemplate').clone()
+			clone.html(function( index, oldHtml ){
+				$('#currentTitle', clone).text(function() {
+					return "" + reviewCurrent.get('title');
+				});
+				$('#currentBody', clone).text(function() {
+					return "" + reviewCurrent.get('review');
+				});
+				return clone.html();
+			})
+			clone.insertAfter("#reviewTemplate");
+			console.log(clone.html());
+		}
     }
   },
   error: function(error) {
