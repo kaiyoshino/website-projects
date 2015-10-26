@@ -1,6 +1,10 @@
 'use strict';
 
-var rating = 0;
+var rating = 0; // does this go here??? ******
+var reviewCurrent = {rating:0}
+var allReviews;
+
+$('.ratingFixed').raty({score: reviewCurrent.rating});
 
 $('#rating').raty({
 	click: function(score) {
@@ -16,15 +20,31 @@ document.getElementById("submit").onclick = function() {
 	var review = new Review();
 	review.save({rating: rating});
 	review.save({title: $('#title').val()});
-	review.save({review: $('#body').val()});
+	review.save({review: $('#review').val()});
 };
 
-// var Rating = Parse.Object.extend("Rating");
-// var ratingOne = new Rating();
-//   ratingOne.save({rating: "2"});
-//   ratingOne.save({artist: "The Beatles"});
-//   ratingOne.save({title: "Sgt. Pepper's Lonely Hearts Club Band"})
-//   ratingOne.save({comment: "Mediocre imo."})
+var Review = Parse.Object.extend("Review");
+var query = new Parse.Query(Review);
+query.find({
+  success: function(results) {
+    for (var i = 0; i < results.length; i++) {
+		var reviewCurrent = results[i];
+		var clone = $('#reviewTemplate').clone().html(function(index, oldHtml){
+			console.log(oldHtml);
+			if(index == 1) {
+				$(this).text(reviewCurrent.get('title'));
+			// } else if (index == 2) {
+			// 	return reviewCurrent.get('information');
+			} else if (index == 3) {
+				$(this).text(reviewCurrent.get('review'));
+			}
+		}).insertAfter("#reviewTemplate");
+    }
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
 
 // var user = new Parse.User();
 // user.set("username", "Kai");
