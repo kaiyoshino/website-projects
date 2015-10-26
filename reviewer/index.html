@@ -11,6 +11,7 @@
     <meta name="author" content="Kai">
     <title>Album Review</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -23,7 +24,7 @@
     </div>
 
     <div id="Your review">
-        <h1>Your Review</h1>
+        <h1>Reviews</h1>
         <div id="rating"></div>
         <form>
             <label for="title"></label>
@@ -38,10 +39,12 @@
     </div>
 
     <div id="reviews">
-        <h1>Other Reviews</h1>
         <div id="reviewTemplate">
             <div  class="container-fluid" >
+                <div id="ratingFixed"></div>
                 <h2 id="currentTitle"></h2>
+                <i id="down" class="fa fa-thumbs-o-down"></i>
+                <i id="up" class="fa fa-thumbs-o-up"></i>
                 <p></p>
                 <h3 id="currentBody"></h3>
                 <p></p>

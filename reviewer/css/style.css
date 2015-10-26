@@ -17,11 +17,27 @@ input {
 }
 
 .button {
-	padding-top: 1em;
+	padding-top: .5em;
 }
 
 .container-fluid {
-	margin: 10px;
+	margin-top: 1em;
 	background-color: whitesmoke;
 	text-align: left;
+}
+
+.fa{
+	float: right;
+	margin: .5em;
+
+}
+
+#currentTitle {
+	display: inline;
+	vertical-align: middle;
+	margin-left: .25em;
+}
+
+#ratingFixed {
+	display: inline;
 }
