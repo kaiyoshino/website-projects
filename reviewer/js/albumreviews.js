@@ -11,6 +11,14 @@ $('#rating').raty({
 
 Parse.initialize("6KZ3eQKMXbXSAXkPeFeYRLkXrOfKZN7ROByAEIRI", "LIRiQTT1stqDPFEYu1pcbAkqeft0sdYY8kBVXS83");
 
+document.getElementById("submit").onclick = function() {
+	var Review = Parse.Object.extend("Review");
+	var review = new Review();
+	review.save({rating: rating});
+	review.save({title: $('#title').val()});
+	review.save({review: $('#body').val()});
+};
+
 // var Rating = Parse.Object.extend("Rating");
 // var ratingOne = new Rating();
 //   ratingOne.save({rating: "2"});
