@@ -3,3 +3,12 @@ body {
     text-align: left;
     padding: 0 25px;
 }
+
+label {
+    display: block;
+    padding-top: 1em;
+}
+
+input {
+    display: block;
+}

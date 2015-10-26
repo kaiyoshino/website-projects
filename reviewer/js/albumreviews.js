@@ -1,6 +1,13 @@
 'use strict';
 
-$('#rating').raty();
+var rating = 0;
+
+$('#rating').raty({
+	click: function(score) {
+		rating = 0;
+		rating = +score;
+	}
+});
 
 Parse.initialize("6KZ3eQKMXbXSAXkPeFeYRLkXrOfKZN7ROByAEIRI", "LIRiQTT1stqDPFEYu1pcbAkqeft0sdYY8kBVXS83");
 
