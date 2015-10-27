@@ -23,11 +23,24 @@ document.getElementById("submit").onclick = function() {
 	review.save({vote: 0});
 };
 
-document.getElementById("fa-thumbs-o-up").onclick = function() {
-	var Review = Parse.Object.extend("Review");
-	var review = new Parse.Query(Review);
+// document.getElementById("up").onclick = function() {
+// 	var Review = Parse.Object.extend("Review");
+// 	var review = new Parse.Query(Review);
+// 	var objectId = $('text.objId').text();
+// 	console.log(objectId);
+	// var votes = query.get(objectId, {
+	// 	success: function(review) {
+	// 		votes.increment('vote');
+	// 		console.log(votes.get('vote'))
+	// 	}
+	// 	// error: function(object, error) {
 
-}
+
+	// 	// }
+	// });
+	// var voteCount = review.get('vote');
+	// console.log(voteCount);
+// }
 
 var Review = Parse.Object.extend("Review");
 var query = new Parse.Query(Review);
@@ -35,38 +48,45 @@ query.find({
   success: function(results) {
     for (var i = 0; i < results.length; i++) {
 		var reviewCurrent = results[i];
-		currentRating = reviewCurrent.get('rating');
-		$('#ratingFixed').raty({
-			score: function() {
-		    	return currentRating;
-		  	}
-		});
-		if (i == 0) { 								// might want to find better solution -- not making template at all if no reviews **
-			$('#currentTitle').text(function() {
-					return "" + reviewCurrent.get('title');
-				});
-				$('#currentBody').text(function() {
-					return "" + reviewCurrent.get('review');
-				});
-		} else {
-			var clone = $('#reviewTemplate').clone()
-			clone.html(function( index, oldHtml ){
-				// $("#ratingFixed", clone).html(function () {
-				// 	$('current-rating').val(reviewCurrent.get('review'));
-				// 	console.log($('current-rating'));
-				// })
-				$('#currentTitle', clone).text(function() {
-					return "" + reviewCurrent.get('title');
-				});
-				$('#currentBody', clone).text(function() {
-					return "" + reviewCurrent.get('review');
-				});
-				clone.append("<text id='objId'> " + reviewCurrent.get('objectId') + " </text>")
-				console.log(clone.html());
-				return clone.html();
-			})
-			clone.insertAfter("#reviewTemplate");
-		}
+
+		// if (i == 0) { 								// might want to find better solution -- not making template at all if no reviews **
+		// 	$('#currentTitle').text(function() {
+		// 			return "" + reviewCurrent.get('title');
+		// 		});
+		// 		$('#currentBody').text(function() {
+		// 			return "" + reviewCurrent.get('review');
+		// 		});
+		// } else {
+			// var id = reviewCurrent.id;
+			// var clone = $('#reviewTemplate').clone()
+			// clone.html(function( index, oldHtml ){
+				var reviewDiv = $("<div class='container-fluid' id=" + reviewCurrent.id + "></div>");
+				var rating = $("<div id='ratingFixed'></div>");
+				var title = $("<h2 id='currentTitle'>" + reviewCurrent.get('title') + "</h2>");
+				var button1 = $("<button id='up'><i class='fa fa-thumbs-o-down'></i></button>");
+				var button2 = $("<button id='down'><i class='fa fa-thumbs-o-up'></i></button>");
+				var body = $("<p>" + reviewCurrent.get('review') + "</p>");
+				// $('#currentTitle', clone).text(function() {
+				// 	return "" + reviewCurrent.get('title');
+				// });
+				// $('#currentBody', clone).text(function() {
+				// 	return "" + reviewCurrent.get('review');
+				// });
+				// console.log(clone.html());
+
+				console.log(reviewCurrent.get('rating'));
+
+				$('#ratingFixed').raty({readOnly: true, score: reviewCurrent.get('rating')});
+				
+				reviewDiv.appendTo('#reviews');
+				title.appendTo(reviewDiv);
+				rating.appendTo(reviewDiv);
+				button1.appendTo(reviewDiv);
+				button2.appendTo(reviewDiv);
+				body.appendTo(reviewDiv);
+			// })
+			// clone.insertAfter("#reviewTemplate");
+		// }
     }
   },
   error: function(error) {

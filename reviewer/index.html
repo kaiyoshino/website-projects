@@ -10,48 +10,39 @@
     <meta name="description" content="...page description...">
     <meta name="author" content="Kai">
     <title>Album Review</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
 
 </head>
 <body>
+    <div class="container">
+        <div id="header">
+            <h1>Joe's Steakhouse</h1>
+            <p><em>Steakhouse/Diner</em></p>
+            <p>Average rating </p>
 
-    <div id="header">
-        <h1>Joe's Steakhouse</h1>
-        <p><em>Steakhouse/Diner</em></p>
-        <p>Average rating </p>
-
-    </div>
-
-    <div id="Your review">
-        <h1>Reviews</h1>
-        <div id="rating"></div>
-        <form>
-            <label for="title"></label>
-            <input type="text" name="title" id="title">
-            <label for="review"></label>
-            <input type="text" name="review" id="review">
-            </div>
-        </form>
-        <div class="button">
-            <button id="submit">Submit</button>
         </div>
-    </div>
 
-    <div id="reviews">
-        <div id="reviewTemplate">
-            <div  class="container-fluid" >
-                <div id="ratingFixed"></div>
-                <h2 id="currentTitle"></h2>
-                <i id="down" class="fa fa-thumbs-o-down"></i>
-                <i id="up" class="fa fa-thumbs-o-up"></i>
-                <p></p>
-                <h3 id="currentBody"></h3>
-                <p></p>
+        <div id="Your review">
+            <h1>Reviews</h1>
+            <div id="rating"></div>
+            <form>
+                <label for="title"></label>
+                <input class="container" type="text" name="title" id="title">
+                <label for="review"></label>
+                <input class="container"  type="text" name="review" id="review">
+                </div>
+            </form>
+            <div class="button">
+                <button class="btn btn-default" type="submit" id="submit">Submit</button>
             </div>
         </div>
-    </div>
 
+        <div id="reviews">
+        </div>
+        
+    </div>
         <!-- jQuery library -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     
