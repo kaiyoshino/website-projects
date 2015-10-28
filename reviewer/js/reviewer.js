@@ -3,6 +3,7 @@
 var rating = 0; // does this go here??? ******
 var allReviews;
 var currentRating;
+var starsTotal = 0;
 
 
 $('#rating').raty({
@@ -21,6 +22,7 @@ document.getElementById("submit").onclick = function() {
 	review.save({title: $('#title').val()});
 	review.save({review: $('#review').val()});
 	review.save({vote: 0});
+	window.alert("Saving Review");
 };
 
 // document.getElementById("up").onclick = function() {
@@ -42,57 +44,54 @@ document.getElementById("submit").onclick = function() {
 	// console.log(voteCount);
 // }
 
+
 var Review = Parse.Object.extend("Review");
 var query = new Parse.Query(Review);
+
 query.find({
   success: function(results) {
     for (var i = 0; i < results.length; i++) {
 		var reviewCurrent = results[i];
+		starsTotal += reviewCurrent.get('rating');
+		var reviewDiv = $("<div class='container-fluid' id=" + reviewCurrent.id + "></div>");
+		var rating = "<div class='raty'></div>";
+		var stars = $(rating).raty({readOnly: true, score: reviewCurrent.get('rating')});
+		var title = $("<h2 class='currentTitle'>" + reviewCurrent.get('title') + "</h2>");
+		var button1 = $("<button class='down' id=" + reviewCurrent.id + "><i class='fa fa-thumbs-o-down'></i></button>");
+		var button2 = $("<button class='up' id=" + reviewCurrent.id + "><i class='fa fa-thumbs-o-up'></i></button>");
+		$('.up').unbind().click(function() {
+			var objectId = this.id;
+			var votes = query.get(objectId, {
+				success: function(review) {
+					query.get(objectId).increment('vote');
+					query.get(objectId).save();
+					console.log(query.get(objectId).get('vote'));
+				}
+				// error: function(object, error) {
 
-		// if (i == 0) { 								// might want to find better solution -- not making template at all if no reviews **
-		// 	$('#currentTitle').text(function() {
-		// 			return "" + reviewCurrent.get('title');
-		// 		});
-		// 		$('#currentBody').text(function() {
-		// 			return "" + reviewCurrent.get('review');
-		// 		});
-		// } else {
-			// var id = reviewCurrent.id;
-			// var clone = $('#reviewTemplate').clone()
-			// clone.html(function( index, oldHtml ){
-				var reviewDiv = $("<div class='container-fluid' id=" + reviewCurrent.id + "></div>");
-				var rating = $("<div id='ratingFixed'></div>");
-				var title = $("<h2 id='currentTitle'>" + reviewCurrent.get('title') + "</h2>");
-				var button1 = $("<button id='up'><i class='fa fa-thumbs-o-down'></i></button>");
-				var button2 = $("<button id='down'><i class='fa fa-thumbs-o-up'></i></button>");
-				var body = $("<p>" + reviewCurrent.get('review') + "</p>");
-				// $('#currentTitle', clone).text(function() {
-				// 	return "" + reviewCurrent.get('title');
-				// });
-				// $('#currentBody', clone).text(function() {
-				// 	return "" + reviewCurrent.get('review');
-				// });
-				// console.log(clone.html());
+				// }
+			});
+		});
+		var body = $("<p class='body'>" + reviewCurrent.get('review') + "</p>");
 
-				console.log(reviewCurrent.get('rating'));
-
-				$('#ratingFixed').raty({readOnly: true, score: reviewCurrent.get('rating')});
-				
-				reviewDiv.appendTo('#reviews');
-				title.appendTo(reviewDiv);
-				rating.appendTo(reviewDiv);
-				button1.appendTo(reviewDiv);
-				button2.appendTo(reviewDiv);
-				body.appendTo(reviewDiv);
-			// })
-			// clone.insertAfter("#reviewTemplate");
-		// }
+		reviewDiv.appendTo('#reviews');
+		title.appendTo(reviewDiv);
+		stars.appendTo(reviewDiv);
+		button1.appendTo(reviewDiv);
+		button2.appendTo(reviewDiv);
+		body.appendTo(reviewDiv);
     }
+    var avg = "<div id='ratyTop'></div>";
+	var avgRating = $(avg).raty({readOnly: true, score: starsTotal / results.length});
+	avgRating.appendTo('#top'); 
   },
   error: function(error) {
-    alert("Error: " + error.code + " " + error.message);
+    window.alert("Error: " + error.code + " " + error.message);
   }
 });
+
+
+
 
 // var user = new Parse.User();
 // user.set("username", "Kai");

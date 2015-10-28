@@ -15,7 +15,7 @@ input {
 }
 
 .button {
-	padding-top: .5em;
+	padding-top: 1em;
 }
 
 .container-fluid {
@@ -23,17 +23,25 @@ input {
 	background-color: whitesmoke;
 }
 
-#up, #down {
+.up, .down {
 	float: right;
 	margin: .5em;
 }
 
-#currentTitle {
+.currentTitle {
 	display: inline;
 	vertical-align: middle;
-	margin-left: .25em;
 }
 
-#ratingFixed {
+.raty {
 	display: inline;
+	margin-left: 1em;
+}
+
+#ratyTop {
+
+}
+
+.body {
+	padding: 2em;
 }
