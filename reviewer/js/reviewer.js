@@ -25,7 +25,6 @@ query.find({
 		$('#rating').raty({
 			click: function(score) {
 				rating = score;
-				console.log(rating);
 			}
 		});
 			document.getElementById("submit").onclick = function() {
