@@ -13,17 +13,31 @@ $('#rating').raty({
 	}
 });
 
+$(document).on({
+    ajaxStart: function() { $("body").addClass("loading");    },
+    ajaxStop: function() { $("body").removeClass("loading"); }    
+});
+
 Parse.initialize("6KZ3eQKMXbXSAXkPeFeYRLkXrOfKZN7ROByAEIRI", "LIRiQTT1stqDPFEYu1pcbAkqeft0sdYY8kBVXS83");
 
 document.getElementById("submit").onclick = function() {
+	save();
+	window.location.reload()
+};
+
+var save = function() {
 	var Review = Parse.Object.extend("Review");
 	var review = new Review();
-	review.save({rating: rating});
-	review.save({title: $('#title').val()});
-	review.save({review: $('#review').val()});
-	review.save({vote: 0});
-
-};
+	review.set("rating", rating);
+	review.set("title", $('#title').val());
+	review.set("review", $('#review').val());
+	review.set("vote", 0);
+	review.save(null, {
+		error: function(review, error) {
+    		alert('Failed to create new review, with error code: ' + error.message);
+    	}
+    });
+}
 
 var Review = Parse.Object.extend("Review");
 var query = new Parse.Query(Review);
@@ -40,7 +54,7 @@ query.find({
 			var button1 = $("<button class='down' id=" + reviewCurrent.id + "><i class='fa fa-thumbs-o-down'></i></button>");
 			var button2 = $("<button class='up' id=" + reviewCurrent.id + "><i class='fa fa-thumbs-o-up'></i></button>");
 			var trash = $("<button class='delete'  id=" + reviewCurrent.id + "><i class='fa fa-trash-o'></i></button>");
-			var helpfulnes = $("<p class='votes'>Helpfulness votes:<font color='grey'>" + reviewCurrent.get('vote') + "</font></p>");
+			var helpfulnes = $("<p class='votes'>Helpfulness votes: <font color='grey'>" + reviewCurrent.get('vote') + "</font></p>");
 			var body = $("<p class='body'>" + reviewCurrent.get('review') + "</p>");
 
 			reviewDiv.appendTo('#reviews');
@@ -58,6 +72,7 @@ query.find({
 					success: function(review) {
 						review.increment('vote');
 						review.save();
+						location.reload();
 					},
 					error: function(object, error) {
 						window.alert("Error: " + error.code + " " + error.message);
@@ -70,6 +85,7 @@ query.find({
 				var votes = query.get(objectId, {
 					success: function(review) {
 						review.destroy();
+						location.reload();
 					},
 					error: function(object, error) {
 						window.alert("Error: " + error.code + " " + error.message);
@@ -82,6 +98,7 @@ query.find({
 					success: function(review) {
 						review.increment('vote', -1);
 						review.save();
+						location.reload();
 					},
 					error: function(object, error) {
 						window.alert("Error: " + error.code + " " + error.message);
