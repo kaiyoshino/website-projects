@@ -20,9 +20,11 @@ $(document).on({
 
 Parse.initialize("6KZ3eQKMXbXSAXkPeFeYRLkXrOfKZN7ROByAEIRI", "LIRiQTT1stqDPFEYu1pcbAkqeft0sdYY8kBVXS83");
 
-document.getElementById("submit").onclick = function() {
-	save();
-	window.location.reload()
+window.onload = function(){
+	document.getElementById("submit").onclick = function() {
+		save();
+		window.location.reload()
+	};
 };
 
 var save = function() {
