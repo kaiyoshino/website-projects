@@ -6,12 +6,7 @@ var currentRating;
 var starsTotal = 0;
 
 
-$('#rating').raty({
-	click: function(score) {
-		rating = 0;
-		rating = +score;
-	}
-});
+
 
 $(document).on({
     ajaxStart: function() { $("body").addClass("loading");    },
@@ -46,6 +41,12 @@ var query = new Parse.Query(Review);
 
 query.find({
 	success: function(results) {
+		$('#rating').raty({
+			// click: function(score) {
+			// 	rating = 0;
+			// 	rating = +score;
+			// }
+		});
 		for (var i = 0; i < results.length; i++) {
 			var reviewCurrent = results[i];
 			starsTotal += reviewCurrent.get('rating');
@@ -117,3 +118,5 @@ query.find({
 		window.alert("Error: " + error.code + " " + error.message);
 	}
 });
+
+
