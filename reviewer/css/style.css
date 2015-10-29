@@ -23,7 +23,7 @@ input {
 	background-color: whitesmoke;
 }
 
-.up, .down {
+.up, .down, .delete {
 	float: right;
 	margin: .5em;
 }
@@ -43,5 +43,12 @@ input {
 }
 
 .body {
-	padding: 2em;
+	padding-top: 2em;
+}
+
+.votes {
+	float: right;
+	position: relative;
+	bottom: .25em;
+	right: .25em;
 }
