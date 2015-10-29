@@ -42,10 +42,10 @@ var query = new Parse.Query(Review);
 query.find({
 	success: function(results) {
 		$('#rating').raty({
-			// click: function(score) {
-			// 	rating = 0;
-			// 	rating = +score;
-			// }
+			click: function(score) {
+				rating = 0;
+				rating = +score;
+			}
 		});
 		for (var i = 0; i < results.length; i++) {
 			var reviewCurrent = results[i];
