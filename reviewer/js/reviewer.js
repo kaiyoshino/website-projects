@@ -6,8 +6,6 @@ var currentRating;
 var starsTotal = 0;
 
 
-
-
 $(document).on({
     ajaxStart: function() { $("body").addClass("loading");    },
     ajaxStop: function() { $("body").removeClass("loading"); }    
@@ -15,14 +13,22 @@ $(document).on({
 
 Parse.initialize("6KZ3eQKMXbXSAXkPeFeYRLkXrOfKZN7ROByAEIRI", "LIRiQTT1stqDPFEYu1pcbAkqeft0sdYY8kBVXS83");
 
-window.onload = function(){
-	document.getElementById("submit").onclick = function() {
-		save();
-		window.location.reload()
-	};
-};
 
-var save = function() {
+
+
+
+var Review = Parse.Object.extend("Review");
+var query = new Parse.Query(Review);
+
+query.find({
+	success: function(results) {
+		$('#rating').raty({
+			click: function(score) {
+				rating = score;
+				console.log(rating);
+			}
+		});
+			document.getElementById("submit").onclick = function() {
 	var Review = Parse.Object.extend("Review");
 	var review = new Review();
 	review.set("rating", rating);
@@ -34,19 +40,8 @@ var save = function() {
     		alert('Failed to create new review, with error code: ' + error.message);
     	}
     });
-}
-
-var Review = Parse.Object.extend("Review");
-var query = new Parse.Query(Review);
-
-query.find({
-	success: function(results) {
-		$('#rating').raty({
-			click: function(score) {
-				rating = 0;
-				rating = +score;
-			}
-		});
+		window.location.reload()
+	};
 		for (var i = 0; i < results.length; i++) {
 			var reviewCurrent = results[i];
 			starsTotal += reviewCurrent.get('rating');
