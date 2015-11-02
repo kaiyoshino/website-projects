@@ -1,0 +1,28 @@
+body {
+  padding:10px;
+}
+
+div .container {
+	background-color: lightgrey;
+	margin: 1em;
+}
+
+i {
+	text-align: top;
+}
+
+img {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-right: 1em;
+	float: left;
+}
+
+p, em {
+	margin-top: 1em;
+}
+
+body {
+    background-image: url("https://media.giphy.com/media/3o85xnKqeH4lRi8r8A/giphy.gif");
+    background-repeat: repeat;
+}
