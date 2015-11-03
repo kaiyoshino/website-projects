@@ -21,31 +21,34 @@
 
 </head>
 <body>
-  <div class="container-fluid" ng-app="myApp" ng-controller="MyCtrl"> <!-- specify app -->
-
-    <form name="trackForm">
-      <div class="form-group">
-        <label>SoundCloud search:</label>
-
-        <!-- bind the search term to the controller -->
-        <input ng-keyup="getTracks()" id="search" name="search" placeholder="Search for a track..." ng-model="query" class="form-control"></input>
-      </div>
-    </form>     
-
-    <div ng-if="tracks"> <!-- only show results if we've done a search -->
-      <p>Tracks found:</p>
-      <ul>
-
-        <div class="container" ng-repeat="track in tracks">
-          <img ng-src="{{track.artwork_url}}">
-          <p><em>{{track.title}}</em></p>
-          <p>by {{track.user.username}}</p>
-        </div>
-      </ul>
+  <div class="row">
+    <div class="col-sm-8">
     </div>
+  <div class = "col-sm-4">
+    <div class="container-fluid" ng-app="myApp" ng-controller="MyCtrl"> <!-- specify app -->
 
-    <div class="container" id="player"></div>
+      <form name="trackForm">
+        <div class="form-group">
+          <label>SoundCloud search:</label>
 
-  </div> <!-- end container -->
+          <!-- bind the search term to the controller -->
+          <input ng-keyup="getTracks()" id="search" name="search" placeholder="Throw in some tuneage!!" ng-model="query" class="form-control">
+        </input>
+        </div>
+      </form>     
+
+      <div ng-if="tracks"> <!-- only show results if we've done a search -->
+
+          <div class="container-fluid" id="list-results" ng-repeat="track in tracks">
+            <img ng-src="{{track.artwork_url}}">
+            <p><em>{{track.title}}</em></p>
+            <p>by {{track.user.username}}</p>
+          </div>
+      </div>
+
+      <div class="container" id="player"></div>
+
+    </div> <!-- end container -->
+  </div>
 </body>
 </html>

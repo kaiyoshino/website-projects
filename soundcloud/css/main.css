@@ -2,9 +2,16 @@ body {
   padding:10px;
 }
 
-div .container {
-	background-color: lightgrey;
+
+#list-results {
+	background-color: whitesmoke;
 	margin: 1em;
+	box-shadow: 2px 2px 2px #000000;
+	border-radius: 5px;
+}
+
+#search {
+	box-shadow: 2px 2px 2px #000000;
 }
 
 i {
