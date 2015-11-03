@@ -5,7 +5,7 @@ body {
 
 #list-results {
 	background-color: whitesmoke;
-	margin: 1em;
+	margin: .7em;
 	box-shadow: 2px 2px 2px #000000;
 	border-radius: 5px;
 }

@@ -1,18 +1,48 @@
 'use strict';
 
 var BASE_URL = 'https://api.soundcloud.com'; //website we fetch information from
-var CLIENT_ID = 'd2de86b6f2a8c564b00e1f78421fab9d' //application ID for requests
+var CLIENT_ID = 'c67c94fac9915ed0ad161e7a8d56cbe0' //application ID for requests
 
 SC.initialize({
   client_id: 'CLIENT_ID'
+  redirect_uri: 'http://http://students.washington.edu/kaiyosh/info343/challenges/soundcloud/'
 });
 
+SC.connect().then(function() {
+  return SC.get('/me');
+}).then(function(me) {
+  alert('Hello, ' + me.username);
+});
 
+// soundcloud.addEventListener('onPlayerReady', function(player, data) {
+//      player.api_play();
+//    });
+
+// var flashvars = {
+//   enable_api: true,
+//   object_id: "myPlayer",
+//   url: "http://soundcloud.com/forss/flickermood"
+// };
+
+// var params = {
+//   allowscriptaccess: "always"
+// };
+
+// var attributes = {
+//   id: "myPlayer",
+//   name: "myPlayer"
+// };
+
+// swfobject.embedSWF("http://player.soundcloud.com/player.swf", "myContent", "81", "100%", "9.0.0","expressInstall.swf", flashvars, params, attributes);
 // var track_url = 'http://soundcloud.com/forss/flickermood';
 
 // SC.oEmbed(track_url, { auto_play: true }, document.getElementById("player")).then(function(oEmbed) {
 //   console.log('oEmbed response: ', oEmbed);
 // });
+
+SC.stream('/tracks/293').then(function(player){
+  player.play();
+});
 
 var myApp = angular.module('myApp', [])
   .controller('MyCtrl', ['$scope', '$http', function($scope, $http) { 
