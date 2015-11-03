@@ -8,30 +8,29 @@ SC.initialize({
   redirect_uri: 'http://http://students.washington.edu/kaiyosh/info343/challenges/soundcloud/'
 });
 
-// var iframeElement   = document.querySelector('iframe');
-// var iframeElementID = iframeElement.id;
-// var widget1         = SC.Widget(iframeElement);
-// var widget2         = SC.Widget(iframeElementID);
+  (function(){
+    var widgetIframe = document.getElementById('sc-widget'),
+        widget       = SC.Widget(widgetIframe),
+        newSoundUrl = 'http://api.soundcloud.com/tracks/13692671';
 
-SC.connect().then(function() {
-  return SC.get('/me');
-}).then(function(me) {
-  alert('Hello, ' + me.username);
-});
+    widget.bind(SC.Widget.Events.READY, function() {
+      // load new widget
+      $('#play').click(function() {
+        widget.load(newSoundUrl, {
+          show_artwork: false
+        });
+      });
+    });
 
-// SC.get('chancetherapper/tracks').then(function(tracks){
-//   alert('Latest track: ' + tracks[0].title);
+  }());
+
+  
+
+// var track_url = 'http://soundcloud.com/forss/flickermood';
+// SC.oEmbed(track_url, document.getElementById('player')).then(function(oEmbed) {
+//   player.play();
 // });
 
-var track_url = 'http://soundcloud.com/forss/flickermood';
-SC.oEmbed(track_url, { auto_play: true }).then(function(oEmbed) {
-  console.log('oEmbed response: ', oEmbed);
-  player.play();
-});
-
-// soundcloud.addEventListener('onPlayerReady', function(player, data) {
-//      player.api_play();
-//    });
 
 // var flashvars = {
 //   enable_api: true,
