@@ -14,7 +14,7 @@
   <!-- include libraries -->
   <script src="//connect.soundcloud.com/sdk.js"></script>
   <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
-  <script src="js/player.js"></script>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="js/app.js"></script>
@@ -23,9 +23,18 @@
 <body>
   <div class="row">
     <div class="col-sm-8">
+
+<!--       <object height="81" width="100%" id="yourPlayerId" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+        <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2Fmatas%2Fhobnotropic&amp;enable_api=true&amp;object_id=yourPlayerId"></param>
+        <param name="allowscriptaccess" value="always"></param>
+        <embed allowscriptaccess="always" height="81" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2Fmatas%2Fhobnotropic&amp;enable_api=true&amp;object_id=yourPlayerId" type="application/x-shockwave-flash" width="100%" name="yourPlayerId"></embed>
+      </object> -->
+      
     </div>
   <div class = "col-sm-4">
     <div class="container-fluid" ng-app="myApp" ng-controller="MyCtrl"> <!-- specify app -->
+
+
 
       <form name="trackForm">
         <div class="form-group">
@@ -46,7 +55,7 @@
           </div>
       </div>
 
-      <div class="container" id="player"></div>
+<!--       <div class="container" id="player"></div> -->
 
     </div> <!-- end container -->
   </div>
