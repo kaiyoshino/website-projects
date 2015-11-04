@@ -24,7 +24,7 @@
   <div class="row">
     <div class="col-sm-8">
 
-      <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/90243759&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
+      <iframe id="sc-widget" width="50%" height="83" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/90243759&amp;auto_play=true&amp;show_artwork=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
 
       <!-- <div id="player"></div> -->
 
@@ -44,13 +44,13 @@
         </div>
       </form>     
 
-      <div ng-if="tracks"> <!-- only show results if we've done a search -->
+      <div ng-show="tracks"> <!-- only show results if we've done a search -->
 
           <div id="results" class="container-fluid" ng-repeat="track in tracks">
             <img ng-src="{{track.artwork_url}}">
             <p><em>{{track.title}}</em></p>
             <p>by {{track.user.username}}</p>
-            <button class="play" id="{{track.uri}}">PLAY</button>
+            <button class="btn btn-primary" ng-click="doit(track.uri)" class="play">Play!</button>
           </div>
       </div>
 

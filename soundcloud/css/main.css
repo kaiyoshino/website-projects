@@ -33,3 +33,8 @@ body {
     background-image: url("https://media.giphy.com/media/3o85xnKqeH4lRi8r8A/giphy.gif");
     background-repeat: repeat;
 }
+
+.btn-primary {
+	float: right;
+	margin-bottom: 1em;
+}
