@@ -4,14 +4,21 @@ body {
 
 
 #results {
-	background-color: whitesmoke;
+	background-color: white;
 	margin: .7em;
 	box-shadow: 2px 2px 2px #000000;
 	border-radius: 5px;
 }
 
-#search {
+.form-group {
+	background-color: white;
 	box-shadow: 2px 2px 2px #000000;
+	border-radius: 5px;
+	padding: 1em;
+}
+
+#search {
+	
 }
 
 i {
