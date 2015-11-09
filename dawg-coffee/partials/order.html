@@ -9,13 +9,20 @@
     	</div>
 	</div>
 
+	<div class="form-group">
+          <label>Search Products:</label>
+          <input preid="search" pattern=".{2,}" required title="2 characters minimum" name="search" placeholder="Type here" ng-model="query" class="form-control">
+        </input>
+    </div>
+
+
 	<div class="container" ng-show="beans">
-		<div class="beans" class="container-fluid" ng-repeat="bean in beans">
-            <img class="bean-img" ng-src="{{bean.image}}">
-            <p><em>{{bean.name}}</em></p>
-            <p>by {{bean.description}}</p>
-            <p>${{bean.price}} per lbs</p>
-            <a href="{{bean.grower.externalUrl}}"></a>
+		<div class="beans" class="container-fluid" ng-repeat="bean in beans | filter:query">
+            <!-- <img class="bean-img" ng-src="{{bean.image}}"> -->
+            <h2 class="bean-name">{{bean.name}}</h2>
+            <p><em>{{bean.description}}</em></p>
+            <p>{{bean.price | currency}} per pound</p>
+            <a class="details" href="{{bean.grower.externalUrl}}">Details</a>
         </div>
 
 	</div>
