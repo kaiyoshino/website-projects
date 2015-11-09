@@ -102,7 +102,7 @@ footer {
 	}
 
 	#header {
-		background-image: url(C:/Users/Kai/Documents/Junior/Fall/Info343/code/challenges/dawg-coffee/img/background-sm.jpg);
+		background-image: url(../img/background-sm.jpg);
 		padding-top: 50px;
 		height: 550px;
 		color: white;
@@ -138,7 +138,7 @@ footer {
 
 @media screen and (min-width: 992px) {
 	#header {
-		background-image: url(C:/Users/Kai/Documents/Junior/Fall/Info343/code/challenges/dawg-coffee/img/background-md.jpg);
+		background-image: url(../img/background-md.jpg);
 	}
 
 	h1 {
@@ -148,7 +148,7 @@ footer {
 
 @media screen and (min-width: 1200px) {
 	#header {
-		background-image: url(C:/Users/Kai/Documents/Junior/Fall/Info343/code/challenges/dawg-coffee/img/background-lg.jpg);
+		background-image: url(../img/background-lg.jpg);
 	}
 }
 
