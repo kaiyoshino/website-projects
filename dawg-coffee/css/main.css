@@ -3,12 +3,23 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
+.bean-img {
+	height: 8em;
+	width: 11.5em;
+	overflow: hidden;
+	float: left;
+	margin-right: 1em;
+}
+
+.beans {
+	margin: 4em;
+}
+
 body {
 	font-family: 'Lato', 'Helvetica Nue', Helvetica, sans-serif;
 	font-size: 16px;
 	font-weight: 300;
 	background-color: #E9EAEE;
-
 	
 }
 

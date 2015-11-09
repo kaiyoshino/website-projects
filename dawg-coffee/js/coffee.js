@@ -3,10 +3,9 @@
 angular.module('CoffeeApp', ['ui.router'])
 .controller('HomeCtrl', ['$scope', '$http', function($scope, $http) { 
 
-  	$scope.getBeans = function(data) {
-		$http.get('data/products.json').then(function(response) {
-		 		$scope.beans = response.data;
-		 	});
+	$http.get('data/products.json').then(function(response) {
+	 		$scope.beans = response.data;
+	 	});
 
 		 	// $scope.saveBean = function(bean) {
 		 	// 	bean.title = bean.name;
@@ -16,7 +15,7 @@ angular.module('CoffeeApp', ['ui.router'])
 		 	// 	console.log("saved ")
 		 	// 	console.log(movie);
 		 	// }
-		 	
+
   //   	if ($('#search').val().length > 0 ) {
 		// 	// $http.get(request) //Angular AJAX call
 		// 	// .then(function (response) {
@@ -25,7 +24,6 @@ angular.module('CoffeeApp', ['ui.router'])
 		// } else {
 
 		// }
-	}
 
 }])
 
@@ -38,7 +36,7 @@ angular.module('CoffeeApp', ['ui.router'])
 		})
 		.state('orders', {
 			url: '/orders',
-			templateUrl: 'order.html',
+			templateUrl: 'partials/order.html',
 			controller: 'OrdersCtrl'
 		})
 })
