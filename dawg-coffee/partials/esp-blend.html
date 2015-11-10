@@ -9,15 +9,24 @@
 	</div>
 
 	<div class="container">
-
-		<div class="purchase">
+	<form>
+		<div class="purchase"  class="form-group">
 			<h2 class="bean-name">Purchase</h2>
 			<p>{{bean.price | currency}} per pound</p>
 			<h3>Quantity:</h3>
+ 			<input id="quantity" ng-model="order.quantity" type="number" min="1" max="10">
 			<h3>Grind:</h3>
-			<button class="btn btn default">Add to cart</button>
+			<select id="grind" ng-model="order.grind">
+				<option value="Whole Bean">Whole Bean</option>
+				<option value="Espresso">Espresso</option>
+				<option value="French Press">French Press</option>
+				<option value="Cone Drip Filter">Cone Drip Filter</option>
+				<option value="Flat Bottom Filter">Flat Bottom Filter</option>
+			</select>
+			<br/>
+			<a ui-sref="cart"><button type="submit" class="btn btn primary" ng-click="getOrder(bean.name, bean.price)">Add to cart</button></a>
 		</div>  
-
+	</form>
 		<h2 class="bean-name">{{bean.name}}</h2>
 
 		<img class="bean-img" ng-src="{{bean.image}}">
@@ -28,12 +37,12 @@
 		
 	<div class="container">
 		<h2 class="bean-name">About The Grower, {{bea.grower.name}}</h2>
-		<img ng-src="{{bea.grower.image}}">
+		<img ng-src="{{bean.grower.image}}">
 		<p>{{bean.grower.description}}</p>
 		<a class="details" href="{{bean.grower.externalUrl}}">Grower Site</a>
 	</div>
 
-	<div id="footer">
+	<div class="footer">
 		<div class="row">
 			<div class="col-sm-3">
 				<p>&copy; 2015 Dawg Coffee</p>	

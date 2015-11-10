@@ -23,64 +23,53 @@ angular.module('CoffeeApp', ['ui.router'])
 			templateUrl: 'partials/esp-blend.html',
 			controller: 'BeansCtrl'
 		})
-		// .state('captain-ballards-blend', {
-		// 	url: '/orders/captain-ballards-blend',
-		// 	templateUrl: 'partials/captain-ballards-blend.html',
-		// 	controller: 'BeansCtrl'
-		// })
-		// .state('frech-roast', {
-		// 	url: '/orders/frech-roast',
-		// 	templateUrl: 'partials/frech-roast.html',
-		// 	controller: 'BeansCtrl'
-		// })
-		// .state('sumatran', {
-		// 	url: '/orders/sumatran',
-		// 	templateUrl: 'partials/sumatran.html',
-		// 	controller: 'BeansCtrl'
-		// })
-		// .state('ethiopian', {
-		// 	url: '/orders/ethiopian',
-		// 	templateUrl: 'partials/ethiopian.html',
-		// 	controller: 'BeansCtrl'
-		// })
-		// .state('roasters-choice', {
-		// 	url: '/orders/roasters-choice',
-		// 	templateUrl: 'partials/roasters-choice.html',
-		// 	controller: 'BeansCtrl'
-		// })
-		// .state('premium-java', {
-		// 	url: '/orders/premium-java',
-		// 	templateUrl: 'partials/premium-java.html',
-		// 	controller: 'BeansCtrl'
-		// })
-		// .state('kona', {
-		// 	url: '/orders/kona',
-		// 	templateUrl: 'partials/kona.html',
-		// 	controller: 'BeansCtrl'
-		// })
+		.state('cart', {
+			url: '/cart',
+			templateUrl: 'partials/cart.html',
+			controller: 'CartCtrl'
+		})
 })
 
 .config(function($urlRouterProvider){
     $urlRouterProvider.otherwise('/');
 })
 
+.controller('CartCtrl', ['$scope', '$http', function($scope, $http) {
+	$scope.orders = angular.fromJson(localStorage.getItem("order"));
+	console.log($scope.orders);
+	console.log(angular.fromJson(localStorage.getItem("order")));
+
+}])
+
 .controller('OrdersCtrl', ['$scope', '$http', function($scope, $http) {
 
 	$http.get('data/products.json').then(function(response) {
 	 		$scope.beans = response.data;
 	});
-
-
-
 }])
 
 .controller('BeansCtrl', ['$scope', '$http', '$stateParams', '$filter', function($scope, $http, $stateParams, $filter) {
 
 	$http.get('data/products.json').then(function(response) {
-	   	$scope.bean = $filter('filter')(response.data, { //filter the array
-	      id: $stateParams.id //for items whose id property is targetId
-	   	}, true)[0]; //save the 0th result
+	   	$scope.bean = $filter('filter')(response.data, { 
+	      id: $stateParams.id 
+	   	}, true)[0]; 
  	});
 
-
+ 	$scope.getOrder = function(name, price) {
+		var order = []
+		order[0] = {'quantity':$scope.order.quantity, 'grind':$scope.order.grind, 'name':name, 'price':price};
+		if(typeof(Storage) !== "undefined") {
+			if(localStorage.getItem("order") == null) {
+				localStorage.setItem("order", angular.toJson(order));
+			} else {
+				var orderTemp = angular.fromJson(localStorage.getItem("order"));
+				orderTemp.push({'quantity':$scope.order.quantity, 'grind':$scope.order.grind, 'name':name, 'price':price});
+				localStorage.clear();
+				localStorage.setItem("order", angular.toJson(orderTemp));
+			}
+		} else {
+			
+		}	
+	}
 }])

@@ -3,6 +3,12 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
+hr {
+	background-color: #dbdce3;
+	border-color: #dbdce3;
+	height: 2px;
+}
+
 .purchase {
 	float: right;
 	background-color: #dbdce3;
@@ -104,10 +110,6 @@ img {
 	max-height: 300px;
 	margin-left: 1em;
 	border-radius: 5px;
-}
-
-footer {
-
 }
 
 @media screen and (min-width: 768px) {
@@ -220,10 +222,16 @@ dd {
 	padding-bottom: 1em;
 }
 
-#footer {
+.footer {
+	margin-top: 2em;
 	font-size: 12px;
 	background-color: #afb3c2;
 	border-top-style: solid;
 	border-width: 3px;
 	border-color: #d87e28; 
+}
+
+.btn {
+	background-color: white;
+	margin: 1em;
 }
