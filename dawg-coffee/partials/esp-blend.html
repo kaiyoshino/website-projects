@@ -1,5 +1,54 @@
-<img class="bean-img" ng-src="{{bean.image}}">
-<p><em>{{bean.name}}</em></p>
-<p>{{bean.description}}</p>
-<p>{{bean.price | currency}} per pound</p>
-<a class="details" href="{{bean.grower.externalUrl}}">Details</a>
+
+
+	<div class="container" id="header">
+		<h1>Dawg Coffee</h1>
+		<h1>Orders</h1>
+    	<div id="motto">
+    		<p>Supplying beans to Sleepy Huskies since 2015</p>
+    	</div>
+	</div>
+
+	<div class="container">
+
+		<div class="purchase">
+			<h2 class="bean-name">Purchase</h2>
+			<p>{{bean.price | currency}} per pound</p>
+			<h3>Quantity:</h3>
+			<h3>Grind:</h3>
+			<button class="btn btn default">Add to cart</button>
+		</div>  
+
+		<h2 class="bean-name">{{bean.name}}</h2>
+
+		<img class="bean-img" ng-src="{{bean.image}}">
+		<p><em>{{bean.description}}</em></p>
+	</div>
+		
+
+		
+	<div class="container">
+		<h2 class="bean-name">About The Grower, {{bea.grower.name}}</h2>
+		<img ng-src="{{bea.grower.image}}">
+		<p>{{bean.grower.description}}</p>
+		<a class="details" href="{{bean.grower.externalUrl}}">Grower Site</a>
+	</div>
+
+	<div id="footer">
+		<div class="row">
+			<div class="col-sm-3">
+				<p>&copy; 2015 Dawg Coffee</p>	
+			</div>
+			<div class="col-sm-9">
+				<p>Icons by
+				    <a href="http://www.freepik.com" title="Freepik">Freepik</a>,
+				    <a href="http://www.bogdanrosu.com" title="Bogdan Rosu">Bogdan Rosu</a>
+				    from
+				    <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
+				    is licensed under
+				    <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	

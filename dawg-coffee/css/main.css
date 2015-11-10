@@ -3,6 +3,13 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
+.purchase {
+	float: right;
+	background-color: #dbdce3;
+	padding: 1em;
+	margin: 1em;
+}
+
 .bean-name {
 	text-align: left;
 	font-weight: bold;

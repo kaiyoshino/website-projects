@@ -18,10 +18,45 @@ angular.module('CoffeeApp', ['ui.router'])
 			templateUrl: 'partials/order.html',
 			controller: 'OrdersCtrl'
 		})
-		// .state('esp-blend', {
-		// 	url: '/orders/espresso-blend'
-		// 	templateUrl: '',
-		// 	controller: 'DetailsCtrl'
+		.state('beans', {
+			url: '/orders/{id}',
+			templateUrl: 'partials/esp-blend.html',
+			controller: 'BeansCtrl'
+		})
+		// .state('captain-ballards-blend', {
+		// 	url: '/orders/captain-ballards-blend',
+		// 	templateUrl: 'partials/captain-ballards-blend.html',
+		// 	controller: 'BeansCtrl'
+		// })
+		// .state('frech-roast', {
+		// 	url: '/orders/frech-roast',
+		// 	templateUrl: 'partials/frech-roast.html',
+		// 	controller: 'BeansCtrl'
+		// })
+		// .state('sumatran', {
+		// 	url: '/orders/sumatran',
+		// 	templateUrl: 'partials/sumatran.html',
+		// 	controller: 'BeansCtrl'
+		// })
+		// .state('ethiopian', {
+		// 	url: '/orders/ethiopian',
+		// 	templateUrl: 'partials/ethiopian.html',
+		// 	controller: 'BeansCtrl'
+		// })
+		// .state('roasters-choice', {
+		// 	url: '/orders/roasters-choice',
+		// 	templateUrl: 'partials/roasters-choice.html',
+		// 	controller: 'BeansCtrl'
+		// })
+		// .state('premium-java', {
+		// 	url: '/orders/premium-java',
+		// 	templateUrl: 'partials/premium-java.html',
+		// 	controller: 'BeansCtrl'
+		// })
+		// .state('kona', {
+		// 	url: '/orders/kona',
+		// 	templateUrl: 'partials/kona.html',
+		// 	controller: 'BeansCtrl'
 		// })
 })
 
@@ -34,5 +69,18 @@ angular.module('CoffeeApp', ['ui.router'])
 	$http.get('data/products.json').then(function(response) {
 	 		$scope.beans = response.data;
 	});
+
+
+
+}])
+
+.controller('BeansCtrl', ['$scope', '$http', '$stateParams', '$filter', function($scope, $http, $stateParams, $filter) {
+
+	$http.get('data/products.json').then(function(response) {
+	   	$scope.bean = $filter('filter')(response.data, { //filter the array
+	      id: $stateParams.id //for items whose id property is targetId
+	   	}, true)[0]; //save the 0th result
+ 	});
+
 
 }])

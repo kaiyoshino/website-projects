@@ -19,7 +19,7 @@
 	<div class="container" ng-show="beans">
 		<div class="beans" class="container-fluid" ng-repeat="bean in beans | filter:query">
             <!-- <img class="bean-img" ng-src="{{bean.image}}"> -->
-            <h2 class="bean-name">{{bean.name}}</h2>
+            <a ui-sref="beans({id: bean.id})"><h2 class="bean-name">{{bean.name}}</h2></a>
             <p><em>{{bean.description}}</em></p>
             <p>{{bean.price | currency}} per pound</p>
             <a class="details" href="{{bean.grower.externalUrl}}">Details</a>
@@ -27,4 +27,21 @@
 
 	</div>
 
+	<div id="footer">
+		<div class="row">
+			<div class="col-sm-3">
+				<p>&copy; 2015 Dawg Coffee</p>	
+			</div>
+			<div class="col-sm-9">
+				<p>Icons by
+				    <a href="http://www.freepik.com" title="Freepik">Freepik</a>,
+				    <a href="http://www.bogdanrosu.com" title="Bogdan Rosu">Bogdan Rosu</a>
+				    from
+				    <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
+				    is licensed under
+				    <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
