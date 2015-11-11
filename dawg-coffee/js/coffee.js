@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('CoffeeApp', ['ui.router'])
+angular.module('CoffeeApp', ['ui.router', 'ui.bootstrap'])
 .controller('HomeCtrl', ['$scope', '$http', function($scope, $http) { 
 
 
@@ -34,8 +34,8 @@ angular.module('CoffeeApp', ['ui.router'])
     $urlRouterProvider.otherwise('/');
 })
 
-.controller('CartCtrl', ['$scope', '$http', function($scope, $http) {
-	$scope.orders = angular.fromJson(localStorage.getItem("order"));
+.controller('CartCtrl', ['$scope', '$http', '$uibModal', function($scope, $http, $uibModal) {
+	 $scope.orders = angular.fromJson(localStorage.getItem("order"));
 
 	$scope.delete = function (idx) {
 		$scope.orders.splice(idx, 1);
@@ -61,7 +61,24 @@ angular.module('CoffeeApp', ['ui.router'])
 		return $scope.orders.reduce(function(current, order) { return current + (order.quantity * order.price); }, 0);
 	};
 
+	$scope.submit = function() {
+		var modalInstance = $uibModal.open({
+			template: '<p>Order Submited!</p><button class="btn btn-primary" type="button" ng-click="ok()">Ok</button>',
+			controller: 'SelectModalCtrl',
+			scope: $scope
+		});
+	}
+
 }])
+
+.controller('SelectModalCtrl', function($scope, $http, $uibModalInstance) {
+
+  //when hit okay, return result
+  $scope.ok = function () {
+     $uibModalInstance.close($scope.selectedMovie);
+  };
+})
+
 
 .controller('OrdersCtrl', ['$scope', '$http', function($scope, $http) {
 

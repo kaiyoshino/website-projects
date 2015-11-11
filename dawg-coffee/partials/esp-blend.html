@@ -24,7 +24,7 @@
 				<option value="Flat Bottom Filter">Flat Bottom Filter</option>
 			</select>
 			<br/>
-			<a ui-sref="cart"><button type="submit" class="btn btn primary" ng-click="getOrder(bean.name, bean.price)">Add to cart</button></a>
+			<button type="submit" class="btn btn primary" id="add" ng-click="getOrder(bean.name, bean.price)"><a ui-sref="cart">Add to cart</a></button>
 		</div>  
 	</form>
 		<h2 class="bean-name">{{bean.name}}</h2>
@@ -55,6 +55,7 @@
 				    <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
 				    is licensed under
 				    <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+				    Information about coffee growers from <a href="https://www.sweetmarias.com/">Sweet Maria's</a>.
 				</p>
 			</div>
 		</div>

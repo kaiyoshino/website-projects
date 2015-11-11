@@ -3,6 +3,16 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
+#add {
+	background-color: grey;
+}
+
+.fa-shopping-cart {
+	color: white;
+	float: right;
+	margin-right: 1.5em;
+	margin-top: .15em;
+}
 
 .fa-trash-o {
 	float: right;
@@ -95,6 +105,7 @@ li {
 }
 
 #header {
+	height: 225px;
 	background-repeat: no background-repeat;
 	width: 100%;
 	padding-top: 3em;
@@ -248,6 +259,5 @@ dd {
 }
 
 .btn {
-	background-color: white;
 	margin: 1em;
 }
