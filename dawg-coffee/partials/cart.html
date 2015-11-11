@@ -22,16 +22,16 @@
 		<div class="row" >
 			<div class="col-sm-3">{{order.name}}</div>
 			<div class="col-sm-3">{{order.grind}}</div>
-			<div class="col-sm-2">{{order.quantity}}</div>
+			<div class="col-sm-2"><i class="fa fa-minus-circle" ng-click="decrease($index, order)"></i>  {{order.quantity}}  <i class="fa fa-plus-circle" ng-click="increase($index, order)"></i></div>
 			<div class="col-sm-2">{{order.price | currency}}</div>
-			<div class="col-sm-2">{{order.price * order.quantity | currency}}<i class='fa fa-trash-o' ng-click="delete($index, order)"></i></div>
+			<div class="col-sm-2">{{order.price * order.quantity | currency}}<i class='fa fa-trash-o' ng-click="delete($index)"></i></div>
 		</div>
 		<hr>
 	</div>
 	<div class="row">
 		<div class="col-sm-8"></div>
 		<div class="col-sm-2">Grand Total</div>
-		<div class="col-sm-2">sumthin</div>
+		<div class="col-sm-2">{{total() | currency}}</div>
 	</div>
 </div>
 

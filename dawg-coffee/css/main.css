@@ -3,8 +3,11 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
+
 .fa-trash-o {
 	float: right;
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 hr {

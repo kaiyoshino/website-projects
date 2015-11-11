@@ -43,6 +43,24 @@ angular.module('CoffeeApp', ['ui.router'])
 		localStorage.setItem("order", angular.toJson($scope.orders));
 	};
 
+	$scope.increase = function (idx, order) {
+		order.quantity++;
+		$scope.orders.splice(idx, 1, order);
+		localStorage.clear();
+		localStorage.setItem("order", angular.toJson($scope.orders));
+	};
+
+	$scope.decrease = function (idx, order) {
+		order.quantity--;
+		$scope.orders.splice(idx, 1, order);
+		localStorage.clear();
+		localStorage.setItem("order", angular.toJson($scope.orders));
+	};
+
+	$scope.total = function() {
+		return $scope.orders.reduce(function(current, order) { return current + (order.quantity * order.price); }, 0);
+	};
+
 }])
 
 .controller('OrdersCtrl', ['$scope', '$http', function($scope, $http) {
