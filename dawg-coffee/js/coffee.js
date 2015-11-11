@@ -36,8 +36,12 @@ angular.module('CoffeeApp', ['ui.router'])
 
 .controller('CartCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.orders = angular.fromJson(localStorage.getItem("order"));
-	console.log($scope.orders);
-	console.log(angular.fromJson(localStorage.getItem("order")));
+
+	$scope.delete = function (idx) {
+		$scope.orders.splice(idx, 1);
+		localStorage.clear();
+		localStorage.setItem("order", angular.toJson($scope.orders));
+	};
 
 }])
 

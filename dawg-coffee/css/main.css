@@ -3,6 +3,10 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
+.fa-trash-o {
+	float: right;
+}
+
 hr {
 	background-color: #dbdce3;
 	border-color: #dbdce3;
@@ -223,6 +227,15 @@ dd {
 }
 
 .footer {
+	margin-top: 2em;
+	font-size: 12px;
+	background-color: #afb3c2;
+	border-top-style: solid;
+	border-width: 3px;
+	border-color: #d87e28; 
+}
+
+#footer {
 	margin-top: 2em;
 	font-size: 12px;
 	background-color: #afb3c2;

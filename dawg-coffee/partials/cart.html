@@ -11,21 +11,44 @@
 <div class="container">
 	<h2 class="bean-name">My Cart</h2>
 	<div class="row">
-		<div class="col-md-3">Item</div>
-		<div class="col-md-2">Grind</div>
-		<div class="col-md-2">Quantity</div>
-		<div class="col-md-2">Unit Price</div>
-		<div class="col-md-3">Total Price</div>
+		<div class="col-sm-3">Item</div>
+		<div class="col-sm-3">Grind</div>
+		<div class="col-sm-2">Pounds</div>
+		<div class="col-sm-2">Unit Price</div>
+		<div class="col-sm-2">Total Price</div>
 	</div>
 	<hr>
 	<div ng-repeat="order in orders">
 		<div class="row" >
-			<div class="col-md-3">{{order.name}}</div>
-			<div class="col-md-2">{{order.grind}}</div>
-			<div class="col-md-2">{{order.quantity}}</div>
-			<div class="col-md-2">{{order.price | currency}}</div>
-			<div class="col-md-3">{{order.price * order.quantity | currency}}</div>
+			<div class="col-sm-3">{{order.name}}</div>
+			<div class="col-sm-3">{{order.grind}}</div>
+			<div class="col-sm-2">{{order.quantity}}</div>
+			<div class="col-sm-2">{{order.price | currency}}</div>
+			<div class="col-sm-2">{{order.price * order.quantity | currency}}<i class='fa fa-trash-o' ng-click="delete($index, order)"></i></div>
 		</div>
 		<hr>
+	</div>
+	<div class="row">
+		<div class="col-sm-8"></div>
+		<div class="col-sm-2">Grand Total</div>
+		<div class="col-sm-2">sumthin</div>
+	</div>
+</div>
+
+<div id="footer">
+	<div class="row">
+		<div class="col-sm-3">
+			<p>&copy; 2015 Dawg Coffee</p>	
+		</div>
+		<div class="col-sm-9">
+			<p>Icons by
+			    <a href="http://www.freepik.com" title="Freepik">Freepik</a>,
+			    <a href="http://www.bogdanrosu.com" title="Bogdan Rosu">Bogdan Rosu</a>
+			    from
+			    <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
+			    is licensed under
+			    <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+			</p>
+		</div>
 	</div>
 </div>
