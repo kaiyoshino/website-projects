@@ -3,10 +3,6 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
-#add {
-	background-color: grey;
-}
-
 .fa-shopping-cart {
 	color: white;
 	float: right;
@@ -51,7 +47,7 @@ hr {
 }
 
 .beans {
-	margin: 4em;
+	margin: 2em;
 	background-color: #dbdce3;
 	padding: 1em;
 }
@@ -82,8 +78,16 @@ svg {
 	height: 1em;
 }
 
-a {
+a #header{
 	color: white;
+}
+
+#top a { 
+	color: white;
+}
+
+.footer p, .footer a {
+	color: black;
 }
 
 nav {
@@ -213,7 +217,9 @@ a:hover, a:focus {
  }
 
 .map {
-	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	float: none !important;
 	border-radius: 5px;
 }
 
@@ -223,6 +229,7 @@ a:hover, a:focus {
 
 #menu {
 	text-align: left;
+	padding-left: 1em;
 }
 
 i {
@@ -237,7 +244,7 @@ dd {
 #story {
 	text-align: left;
 	background-color: #dbdce3;
-	padding-bottom: 1em;
+	padding: 1em;
 }
 
 .footer {
@@ -260,4 +267,8 @@ dd {
 
 .btn {
 	margin: 1em;
+}
+
+.bean-name {
+	margin-top: 0;
 }
