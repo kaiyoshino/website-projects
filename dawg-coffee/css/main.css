@@ -86,10 +86,6 @@ a #header{
 	color: white;
 }
 
-.footer p, .footer a {
-	color: black;
-}
-
 nav {
 	position: absolute;
 	text-align: left;
