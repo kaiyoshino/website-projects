@@ -1,4 +1,4 @@
-This is a mock website for a business called Dawg Coffee
+<h1>Thanks for checking out Dawg Coffee!</h1>
 
 You can find the website hosted [here](http://students.washington.edu/kaiyosh/info343/challenges/dawg-coffee/)
 
